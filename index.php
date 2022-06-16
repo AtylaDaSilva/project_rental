@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>Project Rental</h1>
-        <h2>Your very own sports cars rental system</h2>
+        <h2>Sports Cars Rental System</h2>
     </header>
     <main>
         <section id="user_input">
