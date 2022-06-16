@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #user_input div {
+            display: inline-block;
+            padding-left: 15px;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
     <title>Project Rental</title>
 </head>
 <body>
@@ -32,9 +47,28 @@
                 $result = $mysqli->query($query);
 
                 $row = $result->fetch_row();
-                
-                printf("ID: %s<br>", $row[0]);
             ?>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vehicle ID</th>
+                        <th>Vehicle Name</th>
+                        <th>Available for Rental?</th>
+                        <th>Renter Name</th>
+                        <th>Date of Rental</th>
+                        <th>Date of Return</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>100</td>
+                    <td>Infernus</td>
+                    <td>Yes</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tbody>
+            </table>
         </section>
     </main>
     <footer>
