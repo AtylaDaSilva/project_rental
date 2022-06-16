@@ -45,8 +45,6 @@
                 $mysqli = new mysqli("127.0.0.1", "root", "", "project_rental");
                 $query = "SELECT * FROM vehicles";
                 $result = $mysqli->query($query);
-
-                $row = $result->fetch_row();
             ?>
 
             <table>
@@ -61,12 +59,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <td>100</td>
-                    <td>Infernus</td>
-                    <td>Yes</td>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
+                    <?php
+                        $row = $result->fetch_row();
+                        printf("<tr>");
+                        printf("<td>%s</td>", $row[0]);
+                        printf("<td>%s</td>", $row[1]);
+                        $row[2]==1 ? printf("<td>Yes</td>") : printf("<td>No</td>");
+                        $row[3]==null ? printf("<td>--</td>") : printf("<td>%s</td>", $row[3]);
+                        $row[4]==null ? printf("<td>--</td>") : printf("<td>%s</td>", $row[4]);
+                        $row[5]==null ? printf("<td>--</td>") : printf("<td>%s</td>", $row[5]);
+                        printf("</tr>");
+                    ?>
                 </tbody>
             </table>
         </section>
