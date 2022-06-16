@@ -28,7 +28,12 @@
             <h2>List of Vehicles</h2>
             <?php
                 $mysqli = new mysqli("127.0.0.1", "root", "", "project_rental");
-                echo $mysqli->server_info;
+                $query = "SELECT * FROM vehicles";
+                $result = $mysqli->query($query);
+
+                $row = $result->fetch_row();
+                
+                printf("ID: %s<br>", $row[0]);
             ?>
         </section>
     </main>
