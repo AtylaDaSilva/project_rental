@@ -26,8 +26,13 @@
         </section>
         <section>
             <h2>List of Vehicles</h2>
+            <?php
+                $mysqli = new mysqli("127.0.0.1", "root", "", "project_rental");
+                echo $mysqli->server_info;
+            ?>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+    </footer>
 </body>
 </html>
