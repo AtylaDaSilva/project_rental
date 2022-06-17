@@ -18,7 +18,10 @@
                 <a href="index.php"><input type="button" value="HOME"></a>
             </div>
             <div>
-                <a href="#"><input type="button" value="RETURN VEHICLE"></a>
+                <a href="rent.php"><input type="button" value="RENT VEHICLE"></a>
+            </div>
+            <div>
+                <a href="return.php"><input type="button" value="RETURN VEHICLE"></a>
             </div>
         </section>
         <section class="side-by-side">
@@ -61,7 +64,7 @@
         </section>
         <section id="rental_form" class="side-by-side">
             <form>
-                <h2>Vehicle Rental</h2>
+                <h2>Vehicle Return</h2>
                 <label for="vehicle_input">Vehicle Name</label> <input type="text" name="" id="vehicle_input"> <br>
                 <label for="name_input">Full Name</label> <input type="text" name="" id="name_input"> <br>
                 <label for="rental_date_input">Date of Rental</label> <input type="date" name="" id="rental_date_input"> <br>

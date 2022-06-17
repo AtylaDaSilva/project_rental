@@ -18,6 +18,9 @@
                 <a href="index.php"><input type="button" value="HOME"></a>
             </div>
             <div>
+                <a href="rent.php"><input type="button" value="RENT VEHICLE"></a>
+            </div>
+            <div>
                 <a href="return.php"><input type="button" value="RETURN VEHICLE"></a>
             </div>
         </section>
