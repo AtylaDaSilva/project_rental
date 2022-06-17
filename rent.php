@@ -4,29 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        #user_input div {
-            display: inline-block;
-            padding-left: 15px;
-        }
-
-        #rental_form {
-            border: 1px solid black;
-            padding: 10px;
-            width: 300px;
-            height: 300px;
-        }
-
-        table {
-            border-collapse: collapse;
-            text-align: center;
-        }
-
-        th, td {
-            border: 1px solid black;
-            padding: 5px;
-        }
-    </style>
+    <style><?php include "css/rent.css"; ?></style>
     <title>Project Rental</title>
 </head>
 <body>
@@ -84,10 +62,11 @@
         <section id="rental_form" class="side-by-side">
             <form>
                 <h2>Vehicle Rental</h2>
-                <label for="vehicle_input">Vehicle Name</label> <input type="text" name="" id="vehicle_input"> <br>
+                <label for="vehicle_input">Vehicle ID</label> <input type="number" name="" id="vehicle_input"> <br>
                 <label for="name_input">Full Name</label> <input type="text" name="" id="name_input"> <br>
                 <label for="rental_date_input">Date of Rental</label> <input type="date" name="" id="rental_date_input"> <br>
                 <label for="return_date_input">Date of Return</label> <input type="date" name="" id="return_date_input">
+                <br><input type="submit" value="Rent!">
             </form>
         </section>
     </main>

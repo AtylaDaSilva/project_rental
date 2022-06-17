@@ -4,29 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        #user_input div {
-            display: inline-block;
-            padding-left: 15px;
-        }
-
-        #rental_form {
-            border: 1px solid black;
-            padding: 10px;
-            width: 300px;
-            height: 300px;
-        }
-
-        table {
-            border-collapse: collapse;
-            text-align: center;
-        }
-
-        th, td {
-            border: 1px solid black;
-            padding: 5px;
-        }
-    </style>
+    <style><?php include "css/rent.css"; ?></style>
     <title>Project Rental</title>
 </head>
 <body>
