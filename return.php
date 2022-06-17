@@ -47,7 +47,7 @@
                 <tbody>
                     <?php
                         while($row = $result->fetch_row()) {
-                            if ($row[2]) {
+                            if (!$row[2]) {
                                 printf("<tr>");
                                 printf("<td>%s</td>", $row[0]);
                                 printf("<td>%s</td>", $row[1]);
