@@ -33,7 +33,7 @@
                 <a href="rent.php"><input type="button" value="RENT VEHICLE!"></a>
             </div>
             <div>
-                <input type="button" value="RETURN VEHICLE">
+                <a href="return.php"><input type="button" value="RETURN VEHICLE"></a>
             </div>
         </nav>
         <section>

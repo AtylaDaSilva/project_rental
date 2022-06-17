@@ -40,11 +40,11 @@
                 <a href="index.php"><input type="button" value="HOME"></a>
             </div>
             <div>
-                <a href="return.php"><input type="button" value="RETURN VEHICLE"></a>
+                <a href="#"><input type="button" value="RETURN VEHICLE"></a>
             </div>
         </section>
         <section class="side-by-side">
-            <h2>List of Available Vehicles</h2>
+            <h2>List of Rented Vehicles</h2>
             <?php
                 /*Connects to MySQL Server */
                 $mysqli = new mysqli("127.0.0.1", "root", "", "project_rental");
