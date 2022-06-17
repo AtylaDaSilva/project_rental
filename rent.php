@@ -25,19 +25,19 @@
 <body>
     <header>
         <h1>Project Rental</h1>
-        <h2>Sports Cars Rental Management System</h2>
+        <h2>Sports Cars Rental System</h2>
     </header>
     <main>
-        <nav id="user_input">
+        <section id="user_input">
             <div>
-                <a href="rent.php"><input type="button" value="RENT VEHICLE!"></a>
+                <a href="index.php"><input type="button" value="HOME"></a>
             </div>
             <div>
                 <input type="button" value="RETURN VEHICLE">
             </div>
-        </nav>
+        </section>
         <section>
-            <h2>List of Vehicles</h2>
+            <h2>List of Available Vehicles</h2>
             <?php
                 /*Connects to MySQL Server */
                 $mysqli = new mysqli("127.0.0.1", "root", "", "project_rental");
