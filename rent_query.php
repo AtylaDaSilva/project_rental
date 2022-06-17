@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style><?php include "css/style.css"; ?></style>
+    <style><?php
+
+use function PHPSTORM_META\type;
+
+ include "css/style.css"; ?></style>
     <title>Project Rental</title>
 </head>
 <body>
@@ -37,11 +41,30 @@
                 $return_date =  $_POST["return"];
 
                 /*Data Validation*/
-                if ($vehicle_id >= 100 && $vehicle_id <= 109) {
-                    if (strlen($renter_name) >= 5 && strlen($renter_name) <= 60) {
-                            
-                    } else {echo "<p>=> Renter Name must have between 5 and 60 characters.</p>";}
-                } else {echo "<p>=> Please, insert a valid Vehicle ID</p>";}
+                $err = 0; //Number of errors. Program will not perform query if $err > 0.
+                if ($vehicle_id < 100 || $vehicle_id > 109 || is_nan($vehicle_id)) {
+                    echo "<p>=> Please, enter a valid Vehicle ID</p>";
+                    $err++;
+                }
+
+                if (strlen($renter_name) < 5 || strlen($renter_name) > 60) {
+                    echo "<p>=> Renter Name must have between 5 and 60 characters</p>";
+                    $err++;
+                }
+
+                if ($rent_date == "") {
+                    echo "<p>=> Please, enter a valid Rent Date</p>";
+                    $err++;
+                }
+
+                if ($return_date == "") {
+                    echo "<p>=> Please, enter a valid Return Date</p>";
+                    $err++;
+                }
+
+                echo "Errors = " . $err;
+                
+                
 
                 /*Query
                 $query = "UPDATE vehicles 
