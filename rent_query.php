@@ -41,40 +41,54 @@ use function PHPSTORM_META\type;
                 $return_date =  $_POST["return"];
 
                 /*Data Validation*/
+                //Vehicle ID
                 $err = 0; //Number of errors. Program will not perform query if $err > 0.
                 if ($vehicle_id < 100 || $vehicle_id > 109 || is_nan($vehicle_id)) {
                     echo "<p>=> Please, enter a valid Vehicle ID</p>";
                     $err++;
                 }
 
+                //Renter Name
                 if (strlen($renter_name) < 5 || strlen($renter_name) > 60) {
                     echo "<p>=> Renter Name must have between 5 and 60 characters</p>";
                     $err++;
                 }
+
+                if (is_numeric($renter_name)) {
+                    echo "<p>=> Please, enter a valid Renter Name</p>";
+                    $err++;
+                }
+
+                //Rent and Return Date
+                date_default_timezone_set('UTC'); //Sets default timezone to UTC
+                $today = date("Y-m-d"); //Gets current date in the format yyyy-mm-dd
 
                 if ($rent_date == "") {
                     echo "<p>=> Please, enter a valid Rent Date</p>";
                     $err++;
                 }
 
-                if ($return_date == "") {
+                if ($return_date == "" || $return_date < $today) {
                     echo "<p>=> Please, enter a valid Return Date</p>";
                     $err++;
                 }
 
-                echo "Errors = " . $err;
-                
-                
+                if ($err == 0) {
+                    /*SQL Query*/
+                    $query = "UPDATE vehicles 
+                    SET vehicle_available=0, 
+                    renter_name='$renter_name',
+                    rental_date='$rent_date',
+                    rental_return='$return_date'
+                    WHERE vehicle_id='$vehicle_id'";
 
-                /*Query
-                $query = "UPDATE vehicles 
-                SET vehicle_available=0, 
-                renter_name='$renter_name',
-                rental_date='$rent_date',
-                rental_return='$return_date'
-                WHERE vehicle_id='$vehicle_id'";
+                    $mysqli->query($query);
+                    printf("<h2>Vehicle Successfully Rented</h2>");
+                } else {
+                    echo "<p>=> Please, verify inserted data and try again</p>";
+                }
 
-                $mysqli->query($query);*/
+                echo "Errors = " . $err . "<br>";
             ?>
             
         </section>
