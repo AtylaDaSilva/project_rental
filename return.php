@@ -63,7 +63,7 @@
             </table>
         </section>
         <section id="rental_form" class="side-by-side">
-            <form>
+            <form action="return_query.php" method="post">
                 <h2>Vehicle Rental</h2>
                 <label for="vehicle_input">Vehicle ID: </label> <input type="number" name="id" id="vehicle_input"> <br>
                 <label for="name_input">Renter Name: </label> <input type="text" name="name" id="name_input"> <br>
