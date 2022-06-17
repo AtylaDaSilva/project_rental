@@ -10,6 +10,13 @@
             padding-left: 15px;
         }
 
+        #rental_form {
+            border: 1px solid black;
+            padding: 10px;
+            width: 300px;
+            height: 300px;
+        }
+
         table {
             border-collapse: collapse;
             text-align: center;
@@ -36,7 +43,7 @@
                 <input type="button" value="RETURN VEHICLE">
             </div>
         </section>
-        <section>
+        <section class="side-by-side">
             <h2>List of Available Vehicles</h2>
             <?php
                 /*Connects to MySQL Server */
@@ -59,18 +66,29 @@
                 <tbody>
                     <?php
                         while($row = $result->fetch_row()) {
-                            printf("<tr>");
-                            printf("<td>%s</td>", $row[0]);
-                            printf("<td>%s</td>", $row[1]);
-                            $row[2]==1 ? printf("<td>Yes</td>") : printf("<td>No</td>");
-                            $row[3]==null ? printf("<td>--</td>") : printf("<td>%s</td>", $row[3]);
-                            $row[4]==null ? printf("<td>--</td>") : printf("<td>%s</td>", $row[4]);
-                            $row[5]==null ? printf("<td>--</td>") : printf("<td>%s</td>", $row[5]);
-                            printf("</tr>");
+                            if ($row[2]) {
+                                printf("<tr>");
+                                printf("<td>%s</td>", $row[0]);
+                                printf("<td>%s</td>", $row[1]);
+                                $row[2]==1 ? printf("<td>Yes</td>") : printf("<td>No</td>");
+                                $row[3]==null ? printf("<td>--</td>") : printf("<td>%s</td>", $row[3]);
+                                $row[4]==null ? printf("<td>--</td>") : printf("<td>%s</td>", $row[4]);
+                                $row[5]==null ? printf("<td>--</td>") : printf("<td>%s</td>", $row[5]);
+                                printf("</tr>");
+                            }
                         }
                     ?>
                 </tbody>
             </table>
+        </section>
+        <section id="rental_form" class="side-by-side">
+            <form>
+                <h2>Vehicle Rental</h2>
+                <label for="vehicle_input">Vehicle Name</label> <input type="text" name="" id="vehicle_input"> <br>
+                <label for="name_input">Full Name</label> <input type="text" name="" id="name_input"> <br>
+                <label for="rental_date_input">Date of Rental</label> <input type="date" name="" id="rental_date_input"> <br>
+                <label for="return_date_input">Date of Return</label> <input type="date" name="" id="return_date_input">
+            </form>
         </section>
     </main>
     <footer>
