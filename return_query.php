@@ -25,25 +25,48 @@
             </div>
         </nav>
         <section>
+            <h2>Query Result:</h2>
             <?php
                 /*Connects to MySQL Server */
                 $mysqli = new mysqli("127.0.0.1", "root", "", "project_rental");
 
+                /*POST data */
                 $vehicle_id =  $_POST["id"];
-                $renter_name =  $_POST["name"];
-                $rent_date =  $_POST["rent"];
-                $return_date =  $_POST["return"];
+
+                /*Data Validation*/
+
+                //Vehicle ID
+                $err = 0; //Number of errors. Program will not perform query if $err > 0.
+                if ($vehicle_id < 100 || $vehicle_id > 109 || is_nan($vehicle_id)) {
+                    echo "<p>=> Please, enter a valid Vehicle ID</p>";
+                    $err++;
+                }
+
+                $query = "SELECT vehicle_available FROM vehicles WHERE vehicle_id = $vehicle_id";
+                $result = $mysqli->query($query);
+                $vehicle_available = $result->fetch_row();
                 
-                $query = "UPDATE vehicles 
-                SET vehicle_available=0, 
-                renter_name='$renter_name',
-                rental_date='$rent_date',
-                rental_return='$return_date'
-                WHERE vehicle_id='$vehicle_id'";
+                if ($vehicle_available[0]) {
+                    echo "<p>=> Vehicle is not Rented</p>";
+                    $err++;
+                }
 
-                echo $query;
+                if ($err == 0) {
+                    //SQL Query
+                    $query = "UPDATE vehicles 
+                    SET vehicle_available=1, 
+                    renter_name=NULL,
+                    rental_date=NULL,
+                    rental_return=NULL
+                    WHERE vehicle_id='$vehicle_id'";
 
-                $mysqli->query($query);
+                    $mysqli->query($query);
+                    printf("<h2>Vehicle Successfully Returned</h2>");
+                } else {
+                    echo "<p>=> Please, verify inserted data and try again</p>";
+                }
+
+                echo "Errors = " . $err . "<br>";
             ?>
             
         </section>

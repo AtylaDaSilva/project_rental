@@ -64,11 +64,11 @@
         </section>
         <section id="rental_form" class="side-by-side">
             <form action="return_query.php" method="post">
-                <h2>Vehicle Rental</h2>
-                <label for="vehicle_input">Vehicle ID: </label> <input type="number" name="id" id="vehicle_input"> <br>
-                <label for="name_input">Renter Name: </label> <input type="text" name="name" id="name_input"> <br>
-                <label for="rental_date_input">Date of Rental: </label> <input type="date" name="rent" id="rental_date_input"> <br>
-                <label for="return_date_input">Date of Return: </label> <input type="date" name="return" id="return_date_input">
+                <h2>Vehicle Return</h2>
+                <label for="vehicle_input">Vehicle ID: </label> <input type="number" name="id" id="vehicle_input" required> <br>
+                <!-- <label for="name_input">Renter Name: </label> <input type="text" name="name" id="name_input" required> <br>
+                <label for="rental_date_input">Date of Rental: </label> <input type="date" name="rent" id="rental_date_input" required> <br>
+                <label for="return_date_input">Date of Return: </label> <input type="date" name="return" id="return_date_input" required> -->
                 <br><input type="submit" value="Return">
             </form>
         </section>
